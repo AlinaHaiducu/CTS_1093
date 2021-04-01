@@ -35,5 +35,9 @@ public class SuperHero {
 		this.superPower = superPower;
 		this.superSuperPower = superSuperPower;
 	}
+	
+	public static class SuperHeroBuilder{
+		SuperHero superHero;
+	}
 
 }

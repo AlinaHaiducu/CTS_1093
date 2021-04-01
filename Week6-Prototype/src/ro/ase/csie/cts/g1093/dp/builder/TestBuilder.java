@@ -13,6 +13,6 @@ public class TestBuilder {
 				new SuperHero("Superman", 
 						100, false, false, new Weapon(), 
 						null, new Flying(), null);
-	}
+	}  
 
 }

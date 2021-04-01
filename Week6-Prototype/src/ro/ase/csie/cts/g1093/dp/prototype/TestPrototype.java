@@ -15,8 +15,8 @@
 			Char3DModelL mickeyMouse3 = (Char3DModelL) mickeyMouse.clone();
 
 
-		}
-
+		}  
+ 
 	}
 	
 
