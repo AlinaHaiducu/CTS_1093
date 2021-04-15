@@ -22,7 +22,7 @@ public class DonaldDuck implements DisneyActions{
 	public int getPowerLevel() {
 		//
 		return this.powerLevel;
-	}
+	} 
 
 	@Override
 	public void losePower(int power) {

@@ -28,5 +28,5 @@ public class Disney2ACMEAdapter extends ACMECharacter {
 		
 	}
 	
-
+ 
 }

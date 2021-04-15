@@ -13,7 +13,7 @@ public class TestAdapter {
 		
 		DisneyActions donald= new DonaldDuck("Donald Duck", 500);
 		donald.changeLocation(100, 50);
-		donald.losePower(150);
+		donald.losePower(150); 
 		donald.recoverPower(100);
 		
 		//use the adapter

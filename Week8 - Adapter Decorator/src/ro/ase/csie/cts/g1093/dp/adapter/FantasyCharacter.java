@@ -23,7 +23,7 @@ public class FantasyCharacter extends ACMECharacter {
 	@Override
 	public void heal(int points) {
 		System.out.println(String.format("%s heals %d points", name, points));
-		this.lifePoints += points;
+		this.lifePoints += points; 
 		
 	}
 

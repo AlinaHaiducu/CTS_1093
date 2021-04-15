@@ -6,3 +6,4 @@ To develop an online game (with superheroes) implement a software solution that 
 2. Changing the characteristics of some superheroes during the game
 - During the game superheroes can be equipped with new equipment
 - The superhero's behavior can change dynamically depending on the interaction with the other characters in the game
+ 

@@ -10,6 +10,6 @@ public interface DisneyActions {
 	public abstract void recoverPower(int power);
 	public abstract void changeLocation(int x, int y);
 	
-	
+	 
 
 }
