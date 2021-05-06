@@ -36,7 +36,7 @@ public class LoginWith2FactorAuth implements LoginInterface {
 	}
 
 	@Override
-	public boolean checkServerStatus() {
+	public boolean checkServerStatus() { 
 		return this.loginModule.checkServerStatus();
 	}
 	
