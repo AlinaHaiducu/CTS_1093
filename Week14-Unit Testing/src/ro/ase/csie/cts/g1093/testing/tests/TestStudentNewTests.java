@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Random;
 
 import org.junit.After;
@@ -26,6 +27,8 @@ public class TestStudentNewTests {
 	static int initialAge;
 	static int initialNoGrades;
 	
+	static ArrayList<Integer> performanceGrades;
+	
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -37,8 +40,10 @@ public class TestStudentNewTests {
 		
 		Random random = new Random();
 		
+		//new collection
+		performanceGrades = new ArrayList<>();
 		for (int i = 0 ; i < initialNoGrades; i++) {
-			grades.add(random.nextInt(Student.MAX_GRADE) + 1);
+			performanceGrades.add(random.nextInt(Student.MAX_GRADE) + 1);
 		}
 		
 	}
@@ -102,11 +107,73 @@ public class TestStudentNewTests {
 		
 		assertArrayEquals("We do shallow-copy", grades, studentGrades);
 		
+	}
+	//prepare the data
+	
+	@Test
+	public void testGetGradesAveragePerformance() throws WrongGradeException {
+		ArrayList<Integer> gradesArrayList = new ArrayList<>();
+		int noGrades = (int) 1e6;
+		Random random = new Random();
+		for(int i = 0; i < noGrades; i++) {
+			grades.add(random.nextInt(Student.MAX_GRADE) + 1);
+		}
+		
+		student.setGrades(grades);
+		
+		long tStart = System.currentTimeMillis();
+		student.getGradesAverage();
+		long tFinal = System.currentTimeMillis();
+		
+		// do the checking
+		long delta = tFinal - tStart;
+		long performanceLimit = 15;
+		if(delta <= performanceLimit) {
+			assertTrue(true);
+		}
+		else {
+			fail("Takes too long.");
+		}
+	}
+
+	@Test(timeout = 25)
+	public void testGetGradesAveragePerformance2() throws WrongGradeException {
+		student.setGrades(performanceGrades);
+		student.getGradesAverage();
+	}
+	
+	@Test
+	public void testSetAgeInverse() throws WrongAgeException {
+		int newAge = initialAge +1;
+		student.setAge(newAge);
+		assertNotEquals("setAge is not changing the age value", initialAge, student.getAge());
+	}
+	
+	@Test
+	public void testGetMinGradeInvers() throws WrongGradeException {
+		ArrayList<Integer> grades = new ArrayList<>();
+		student.setGrades(performanceGrades);
+		int minGrade = student.getMinGrade();
+		for(int grade : grades) {
+			if(minGrade > grade) {
+				fail("The value is not minimum");
+			}
+		}
+		
+		assertTrue(true);
+	}
+	
+	@Test
+	public void testGetMinCrossCheck() throws WrongGradeException {
+		student.setGrades(performanceGrades);
+		
+		int expectedMin = Collections.min(performanceGrades);
+		int computedMin = student.getMinGrade();
+		
+		assertEquals("Min is not correct", expectedMin, computedMin);
 		
 		
 		
 	}
-
-	
 
 }
